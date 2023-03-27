@@ -8,14 +8,14 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    maven { url = uri("https://jitpack.io") }
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
+    // core
+    implementation("com.github.UnitTestBot.ksmt:ksmt-core:0.4.5")
+    // z3
+    implementation("com.github.UnitTestBot.ksmt:ksmt-z3:0.4.5")
 }
 
 kotlin {
