@@ -1,4 +1,4 @@
-/** File containing all the logic required to pass an AST Tree */
+/** File containing all the logic required to parse an AST Tree to the Symbolic Execution Tree */
 class ExecTreeNode(
     val children: List<ExecTreeNode>,
     val nextExpr: Expr,
@@ -7,7 +7,7 @@ class ExecTreeNode(
     val unsolvable: List<Pair<String, Int>>? = null
 )
 
-/** Parses given function to the AST Tree */
+/** Parses given function to the Symbolic Execution Tree */
 fun parseExpr(func: Func): ExecTreeNode? {
     val initialS = func.variables.map { s -> Let(Var(s.name), SymVal(s.name)) }
     return parseExprRecursive(initialS, emptyList(), listOf(func.block))
